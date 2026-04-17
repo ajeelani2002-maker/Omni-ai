@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OIMO AI Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .app {
+      width: 90%;
+      max-width: 500px;
+      background: #020617;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      background: #1e293b;
+      color: white;
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #3b82f6;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+
+    .output {
+      margin-top: 15px;
+      padding: 10px;
+      background: #1e293b;
+      border-radius: 10px;
+      min-height: 100px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <h1>OIMO AI</h1>
+    <p>Enter your idea:</p>
+    
+    <textarea id="input" placeholder="Make a Roblox game or video..."></textarea>
+    
+    <button onclick="generate()">Generate</button>
+
+    <div class="output" id="output">Output will appear here...</div>
+  </div>
+
+  <script>
+    function generate() {
+      const input = document.getElementById("input").value.trim();
+      const output = document.getElementById("output");
+
+      if (!input) {
+        output.innerText = "Please enter something.";
+        return;
+      }
+
+      if (input.toLowerCase().includes("roblox")) {
+        output.innerText = "[Roblox Script]\nFilename: oimo_game.lua\n\n-- Simple Obby Platform\nlocal part = Instance.new('Part')\npart.Size = Vector3.new(10,1,10)\npart.Position = Vector3.new(0,5,0)\npart.Anchored = true\npart.Parent = workspace";
+      } else if (input.toLowerCase().includes("video")) {
+        output.innerText = "[Video Script]\nTitle: This Roblox Glitch is INSANE\nHook: You won't believe this glitch...\nScene: Player finds glitch\nCTA: Subscribe for more!";
+      } else {
+        output.innerText = "OIMO is thinking...\nTry 'Roblox game' or 'video script'.";
+      }
+    }
+  </script>
+</body>
+</html>
